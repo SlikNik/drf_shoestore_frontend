@@ -62,12 +62,7 @@ class App extends React.Component{
               </li>
               <li>Material: {shoe.material}</li>
               <li>
-                Type: 
-                  {
-                    fetch(`${shoe.shoe_type}`)
-                    .then((res) => res.json())
-                    .then((data2) => data2)
-                  }
+                Type: <a href={shoe.shoe_type}>{shoe.shoe_type}</a>
               </li>
               <li>Fasten Type: {shoe.fasten_type}</li>
               <br />
