@@ -19,9 +19,9 @@ class App extends React.Component{
     .then(async (data) => {
       console.log(data)
       let new_data = []
-      let shoe = {size: 0, brand_name: '', manufacturer: '', color: '', 
-      material: '', shoe_type: '', fasten_type: ''}
       for(let i = 0; i < data.length; i++){
+        let shoe = {size: 0, brand_name: '', manufacturer: '', color: '', 
+        material: '', shoe_type: '', fasten_type: ''}
         shoe.size = data[i].size
         shoe.brand_name = data[i].brand_name
         shoe.manufacturer =await fetch(`${data[i].manufacturer}`)
@@ -34,12 +34,11 @@ class App extends React.Component{
           .then((res) => res.json())
           .then((data2) => data2)
         shoe.material = data[i].material
-        shoe.shoe_type = data[i].shoe_type
         shoe.fasten_type = data[i].fasten_type
         new_data.push(shoe)
         console.log(shoe)
-        // console.log(new_data)
       }
+      console.log(new_data)
       this.fetchedFKS(new_data)
     })
   }
@@ -62,7 +61,7 @@ class App extends React.Component{
               </li>
               <li>Material: {shoe.material}</li>
               <li>
-                Type: <a href={shoe.shoe_type}>{shoe.shoe_type}</a>
+                Type: {shoe.shoe_type.style}
               </li>
               <li>Fasten Type: {shoe.fasten_type}</li>
               <br />
